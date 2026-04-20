@@ -28,11 +28,8 @@ As a progression-focused player, Michael wants to unlock new slot machine themes
 Research on popular slot machine apps:
 Apps to be researched: Starburst, Rainbow Riches, Book of Ra Deluxe
 
-# Jeong
-
-## Persona
-
-1. Name: Donalf J. Trumb
+## Persona 3
+Name: Donalf J. Trumb
    - Age: 46
    - **Occupation:** Small Business Owner, but thinks he is a great Entrepreneur.
    - Background: Donalf owns a struggling real estate business but maintains a public image of extreme wealth. He views gambling not just as a game, but as a way to "fix" his business finances with one big strike. He is loud, impatient, and loves the spotlight.
@@ -40,7 +37,8 @@ Apps to be researched: Starburst, Rainbow Riches, Book of Ra Deluxe
    - Frustrations: He finds low-payout is annoying and a waste of time. Also, he hates having to click "Spin" every time. He wants the game to run itself while he manages other business.
    - Need: Auto play system, High volatility mechanics, Access to bonus rounds and free spins where the big money is hidden, Flashy Big win
 
-2. Name: Robert De Niro
+## Persona 4
+Name: Robert De Niro
    - Age: 78
    - Occupation: Retired Professor (Mathematics)
    - Background: Since his wife passed away, Robert lives a quiet, solitary life. He is highly intellectual and keeps his mind sharp with puzzles. He has a fixed pension and treats his gaming budget with the same discipline he used in academia.
