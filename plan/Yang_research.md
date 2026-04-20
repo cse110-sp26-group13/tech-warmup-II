@@ -1,5 +1,3 @@
----
-
 ### Persona 1
 
 Name: Alex
@@ -32,7 +30,7 @@ Age: 22
 
 Occupation: Part-time worker
 
- Background: Mia has not played slot machine games before.
+Background: Mia has not played slot machine games before.
 
 Goals:
 
