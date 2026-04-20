@@ -36,7 +36,7 @@ Apps to be researched: Starburst, Rainbow Riches, Book of Ra Deluxe
 
 # Starburst:
 
-![Alt text](image/starburst.png)
+![Starburst](image/starburst.png)
 
 The UI of Starburst is colorful, simple, and easy to read. It uses a space-themed background with glowing stars, bright gemstone symbols, and clear buttons for spinning, changing bets, and autoplay. Most controls are placed at the bottom of the screen, while the reels stay centered and uncluttered.
 
@@ -91,7 +91,7 @@ Of all the slot machines I’ve tried, Starburst is the one I constantly return 
 
 # Rainbow Riches:
 
-![Alt text](image/RR.png)
+![Rainbow Riches](image/RR.png)
 
 The UI of Rainbow Riches is bright, colorful, and themed around Irish folklore. It uses rainbows, pots of gold, leprechauns, coins, and green landscapes to create a cheerful atmosphere. The reels stay in the center with simple controls for spin, bet size, and autoplay around them, while bonus features like Wishing Well, Pots of Gold, and Road to Riches have their own distinct visual screens.
 
@@ -145,7 +145,7 @@ I can only praise this company. I have played their Slingo games and won on them
 
 # Book of Ra Deluxe:
 
-![Alt text](image/BookofRD.png)
+![Book of Ra Deluxe](image/BookofRD.png)
 
 The UI of Book of Ra Deluxe is themed around ancient Egypt, with pyramids, explorers, scarabs, pharaohs, and treasure symbols filling the screen. The reels are centered in a traditional 5x3 layout, while the controls for betting, paylines, autoplay, and spinning are kept simple below the reels. The graphics are more old-school than modern slots, with darker gold and brown tones, simple animations, and a casino-style look that feels nostalgic rather than flashy.
 
@@ -169,12 +169,8 @@ The UX of Book of Ra Deluxe is focused on simple gameplay with a high-risk, high
 
 Couldn’t copy paste, sorry guys
 
-![Alt text](image/68A0394C-CF6B-4C70-A6D1-1FD3BADE88C7.png)
+![Bad Reviews](image/68A0394C-CF6B-4C70-A6D1-1FD3BADE88C7.png)
 
 ## Good Reviews (5 stars):
+![Good reviews](image/F3CEE9F6-DCAE-4F3A-9991-F0E47093BD29.png)
 
-![image.png](attachment:67685392-7242-4fa2-8e7e-ae02091ac8ca:image.png)
-
-![image.png](attachment:8869197e-ecd4-4a2b-aad5-5480d7f1aff1:image.png)
-
-![image.png](attachment:8edbf189-c1f5-4538-99c7-0f0d9e4c78e7:image.png)
