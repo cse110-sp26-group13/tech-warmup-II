@@ -1,5 +1,5 @@
-
-Persona 1:
+# Persona & User story
+## Persona 1:
 
 - Name: Sarah
 - Age: 22
@@ -9,7 +9,7 @@ Persona 1:
 - Frustrations: Gets annoyed by confusing menus, too many ads, games that feel impossible, or slot machines that are too repetitive.
 - Needs: Easy controls, colorful visuals, quick game sessions, and rewards that make progress feel satisfying.
 
-Persona 2:
+## Persona 2:
 
 - Name: Michael
 - Age: 34
