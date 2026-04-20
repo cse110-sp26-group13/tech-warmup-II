@@ -57,7 +57,7 @@ Needs:  Mia needs beginner-friendly design, simple language, and clear feedback 
 
 ### Guns ‘n’ Roses
 
-![Guns N Roses](image/Guns ‘n’ Roses.png)
+![Guns N Roses](image/Guns_n_Roses.png)
 
 ### UI / UX
 
@@ -94,7 +94,7 @@ The UX feels smooth and engaging. The animations, fire effects, and bonus symbol
 
 ### Dead or Alive 2
 
-![Dead or Alive 2](image/Dead or Alive 2.png)
+![Dead or Alive 2](image/Dead_or_Alive_2.png)
 
 ### UI / UX
 
@@ -146,7 +146,7 @@ The UX feels slower and more focused compared to other slots. There are fewer an
 
 ### Age of The Gods 2
 
-![Age of The Gods 2](image/Age of The Gods 2.png)
+![Age of The Gods 2](image/Age_of_The_Gods_2.png)
 
 ### UI / UX
 
