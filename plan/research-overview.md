@@ -36,7 +36,7 @@ Apps to be researched: Starburst, Rainbow Riches, Book of Ra Deluxe
 
 # Starburst:
 
-![image.png](attachment:0c7740da-57c0-4a15-831f-badc1357f53f:image.png)
+![Alt text](images/starburst.png)
 
 The UI of Starburst is colorful, simple, and easy to read. It uses a space-themed background with glowing stars, bright gemstone symbols, and clear buttons for spinning, changing bets, and autoplay. Most controls are placed at the bottom of the screen, while the reels stay centered and uncluttered.
 
@@ -91,7 +91,7 @@ Of all the slot machines I’ve tried, Starburst is the one I constantly return 
 
 # Rainbow Riches:
 
-![image.png](attachment:d59d7a71-d543-4d9d-9b1e-9ef7987e180d:image.png)
+![Alt text](images/RR.png)
 
 The UI of Rainbow Riches is bright, colorful, and themed around Irish folklore. It uses rainbows, pots of gold, leprechauns, coins, and green landscapes to create a cheerful atmosphere. The reels stay in the center with simple controls for spin, bet size, and autoplay around them, while bonus features like Wishing Well, Pots of Gold, and Road to Riches have their own distinct visual screens.
 
@@ -145,7 +145,7 @@ I can only praise this company. I have played their Slingo games and won on them
 
 # Book of Ra Deluxe:
 
-![image.png](attachment:1aabf7fe-eb35-4600-839a-f82ec5238f09:image.png)
+![Alt text](images/BookofRD.png)
 
 The UI of Book of Ra Deluxe is themed around ancient Egypt, with pyramids, explorers, scarabs, pharaohs, and treasure symbols filling the screen. The reels are centered in a traditional 5x3 layout, while the controls for betting, paylines, autoplay, and spinning are kept simple below the reels. The graphics are more old-school than modern slots, with darker gold and brown tones, simple animations, and a casino-style look that feels nostalgic rather than flashy.
 
