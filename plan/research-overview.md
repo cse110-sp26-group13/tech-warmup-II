@@ -260,6 +260,7 @@ Feature:
 - Mega Moolah slot has lower Return to Player (RTP), 88% to 90%
   - The wins may not be frequent, however the outcome is not bad
 - Free spins with tripled wins
+- ![Safari2](https://github.com/user-attachments/assets/d183b449-078c-4860-9fe6-5e254351fbf4)
 
 - Overview: 3.9/5 (couldn't find the game, so couldn't see the real user reviews)
 
