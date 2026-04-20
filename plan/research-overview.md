@@ -91,6 +91,7 @@ Red Flags (Features to Avoid)
 - Using classic gambling symbols (e.g. 777, Jackpot, etc)
 
 ---
+# Research
 
 **Citeria**
 
@@ -238,3 +239,156 @@ Couldn’t copy paste, sorry guys
 ## Good Reviews (5 stars):
 ![Good reviews](image/F3CEE9F6-DCAE-4F3A-9991-F0E47093BD29.png)
 
+
+#### Mega Moolah
+
+: couldn't find in the app store or web store (So, found the reviews of the game)
+
+Maker: Microgaming
+
+Theme: Africa Safari (Using a lot of animal symbols)
+
+- Each animal has a character like graceful giraffes, mischievous monkeys, majestic lions → this game has its own story line.
+
+Feature:
+
+- The progressive jackpot system, which offers the potential of some of the biggest wins possible on slots
+  - User can choose between four progressive jackpots: Mini, Minor, Major and Mega. (Each offering players the chance to win a payout with every spin)
+- Alongside jackpots, there are plenty of other bonus features
+- Minimum bet ($0.01) to Max bet ($6.25)
+- Mega Moolah slot has lower Return to Player (RTP), 88% to 90%
+  - The wins may not be frequent, however the outcome is not bad
+- Free spins with tripled wins
+
+- Overview: 3.9/5 (couldn't find the game, so couldn't see the real user reviews)
+
+---
+
+#### 88 Fortunes
+
+Maker: Bally Technologies
+
+Theme: Asian culture
+
+Number of Reels: 5
+
+RTP: 96.23%
+
+Bet: Min (0.01 credit) to Max (88 credit)
+
+Features:
+
+- Unique Betting System: All up
+  - User can manage the betting amount
+- Jackpot can occur with different betting levels
+  - Level 1: no jackpot
+  - Level 2 (18 credit): mini jackpot
+  - Level 5 (88 credit): grand jackpot
+- Free spins
+  - If there are more than three "Gong" symbols → 10 free spins
+
+Overviews: 4.4/5.0
+
+Good:
+
+- "Balanced feel, small to mid wins land often enough to keep you in the game between features"
+- Clean readable graphics and UI
+- "Bonus round adds a genuine momentum shift and is where the bigger hits usually come from"
+
+Bad:
+
+- "Not every release includes jackpots, always check progressive before you play"
+- "Audio loop gets repetitive quickly, ended up muting it"
+- "Heavier wins are mostly tied to the bonus, base game alone can feel grindy"
+
+---
+
+#### Blood Suckers
+
+Maker: NetEnt
+
+Theme: Vampire Theme
+
+Number of Reels: 5 Reels
+
+RTP: 98%
+
+Bet: Min ($0.01) to Max ($50)
+
+- Feature:
+  - Wild Symbols (The Vampire Bite)
+    - Function: it substitutes for all other symbols except for the Scatter and Bonus symbols
+    - Payout: it is the highest paying symbol in the game
+  - Free Spins (The Vampire Bride)
+    : Landing 3 or more scatter symbols (represented by the terrified vampire bride) triggers the Free Spins round
+    - The 3x Multiplier: A key highlight of this feature is that all wins during the Free Spins round are automatically tripled
+  - Bonus Game
+    : Landing 3 or more bonus symbols (Hammer and Stake) on a consecutive payline starting from the leftmost reel
+    - Pick and Click interactive feature: click on one of the coffins to open them
+      - If the vampire is inside, it is slain, and awarded a cash prize
+      - If bats fly out of the coffin, it means the coffin is empty. This ends the bonus round, and the player is returned to the main game
+  - Uses chilling ambient sound — wind howling, crows, and eerie whispers
+  - Can access with very low minimum bet, accessible for casual players or those testing a new strategy
+  - Quick Spin
+  - Auto play: customizable stop-loss limits
+
+- Overview: 7.8/10
+  - Good Reviews:
+    - "very high RTP, compared to others"
+    - "Great chance to win"
+    - "you just play and did not lose much"
+  - Bad Reviews:
+    - "the lines are fixed thus there is no way to change how many lines you want to play to lower your stake per spin"
+    - "Because the variance is low, you can't win a lot of money out of this game"
+    - "The bonus game is really hard to get"
+
+---
+
+## Mac Apps (slot machine games)
+
+#### Xtreme Slots: Vegas Casino (Category: Casino)
+
+- Maker: Meme, Inc
+- Over 1,500 reviews 4.5/5
+
+Bad Reviews:
+
+1. "the company is far too aggressive trying to sell you additional coins. Each time the app is opened, multiple dialogs will pop up saying coins are on sale"
+2. "not very many wins"
+3. "Suddenly there's a lot less free coins and a lot less winning"
+
+Good Reviews:
+
+1. "Straight forward with interesting bonus and goals"
+
+- Feature
+
+---
+
+#### Cash Frenzy - Slots Casino (Category: Casino)
+
+- Maker: SpinX Games Limited
+- Over 1,500 reviews 4.8/5
+
+Good Reviews:
+
+1. "Graphic is good"
+2. "has a lot of different choices for slots"
+
+Bad Reviews:
+
+1. "can lose a lot of money in short time"
+2. "Same old story, win at first then less and less as you play"
+3. "Missions are unachievable in hopes that you make a purchase"
+
+- Feature:
+  1. Game variety: over 150 free slots
+  2. Famous Casino Theme provided
+  3. Rewards & Bonuses:
+     - Welcome bonus to new user
+     - Timer system: An exciting built-in timer that provides periodic rewards, encouraging players to return to the app frequently (a key retention strategy).
+  4. User Experience
+     - Portrait Mode: Optimized for mobile use, allowing players to navigate and spin easily with one hand
+     - Includes special bonus rounds
+  5. Accessibility & Engagement
+     - Anytime, anywhere
