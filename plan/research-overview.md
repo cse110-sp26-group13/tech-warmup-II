@@ -685,7 +685,7 @@ Theme: Africa Safari (Using a lot of animal symbols)
 
 By Jeremy Lim
 
-![Gates of Olympus](raw%20research/gates_of_olympus.jpg)
+![Gates of Olympus](raw%20research/image/gates_of_olympus.jpg)
 
 ## UI / UX
 
