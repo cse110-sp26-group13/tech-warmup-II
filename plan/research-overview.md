@@ -45,7 +45,9 @@ Red Flags (Features to Avoid)
 2. Overview (3 good reviews+ 3 bad reviews)
 3. UX/ UI (also add screenshot of each apps slot machine)
 
-# Starburst: Ophir
+# Starburst: 
+
+By Ophir
 
 ![Starburst](image/starburst.png)
 
@@ -101,6 +103,8 @@ The combination of the space theme and sparkling gemstones works very well. The 
 Of all the slot machines I’ve tried, Starburst is the one I constantly return to. The feature that allows wins from both directions significantly improves both the experience and the winning possibilities.
 
 # Rainbow Riches:
+
+by Shazi
 
 ![Rainbow Riches](image/RR.png)
 
@@ -189,6 +193,8 @@ Couldn’t copy paste, sorry guys
 
 # Guns ‘n’ Roses
 
+by Andrew
+
 ![Guns N Roses](image/Guns_n_Roses.png)
 
 ## UI / UX
@@ -225,6 +231,8 @@ The UX feels smooth and engaging. The animations, fire effects, and bonus symbol
 ---
 
 # Dead or Alive 2
+
+by Aaron
 
 ![Dead or Alive 2](image/Dead_or_Alive_2.png)
 
@@ -278,6 +286,8 @@ The UX feels slower and more focused compared to other slots. There are fewer an
 
 # Age of The Gods 2
 
+By Yang
+
 ![Age of The Gods 2](image/Age_of_The_Gods_2.png)
 
 ## UI / UX
@@ -315,6 +325,8 @@ The UX feels smooth and structured. There are not too many effects, which makes 
 
 # Mega Moolah
 
+By Jeong
+
 : couldn't find in the app store or web store (So, found the reviews of the game)
 
 Maker: Microgaming
@@ -341,6 +353,8 @@ Theme: Africa Safari (Using a lot of animal symbols)
 ---
 
 # 88 Fortunes
+
+By Jeremy
 
 Maker: Bally Technologies
 
@@ -382,6 +396,8 @@ UI:
 ---
 
 # Blood Suckers
+
+By Aidan
 
 Maker: NetEnt
 
@@ -429,6 +445,8 @@ UI:
 
 #### Xtreme Slots: Vegas Casino (Category: Casino)
 
+By Jiangxi
+
 - Maker: Meme, Inc
 - Over 1,500 reviews 4.5/5
   [Xtreme1](https://github.com/user-attachments/assets/c44ce91f-b1db-4c3f-bc17-8cc3b5c33899)
@@ -451,6 +469,8 @@ Good Reviews:
 ---
 
 #### Cash Frenzy - Slots Casino (Category: Casino)
+
+By Stephanie
 
 - Maker: SpinX Games Limited
 - Over 1,500 reviews 4.8/5
