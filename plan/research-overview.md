@@ -49,7 +49,7 @@ Red Flags (Features to Avoid)
 
 By Ophir
 
-![Starburst](image/starburst.png)
+![Starburst](raw%20research/image/starburst.png)
 
 The UI of Starburst is colorful, simple, and easy to read. It uses a space-themed background with glowing stars, bright gemstone symbols, and clear buttons for spinning, changing bets, and autoplay. Most controls are placed at the bottom of the screen, while the reels stay centered and uncluttered.
 
@@ -104,9 +104,9 @@ Of all the slot machines I’ve tried, Starburst is the one I constantly return 
 
 # Rainbow Riches:
 
-by Shazi
+by Shazi Bidarian
 
-![Rainbow Riches](image/RR.png)
+![Rainbow Riches](raw%20research/image/RR.png)
 
 The UI of Rainbow Riches is bright, colorful, and themed around Irish folklore. It uses rainbows, pots of gold, leprechauns, coins, and green landscapes to create a cheerful atmosphere. The reels stay in the center with simple controls for spin, bet size, and autoplay around them, while bonus features like Wishing Well, Pots of Gold, and Road to Riches have their own distinct visual screens.
 
@@ -128,21 +128,21 @@ The UX of Rainbow Riches is designed to be easy for beginners and fans of tradit
 ## Bad reviews (1 star):
 Quick warning, it seems that the majority of bad reviews are against the company more so than against the game…
 
-## **Back from a months break £60 on little…**
+**Review 1**
 
 Back from a months break £60 on little wins.nothing big. No bonuses whatsoever. The amount of no wins spins is shocking. Back on a 2 week break for me. [Used.to](http://used.to/) be a rwally.good site now just takes all the time. [Impossible.to](http://impossible.to/) build.let alone withdraw. Shame used to like the pick n mix game but [since.it](http://since.it/) was "upgraded" just awful now.
 
-## **DISPUTE YOUR PAYMENTS IF YOU HAVE DEPOSIT3D WITH THIS COMPANY**
+**Review 2**
 
 Scam company, if you have deposited money PLEASE dispute this immediately with your bank. If you want to withdraw money they request photos of your ID, Bank statements, bank cards and a photo standing outside of your house with a piece of paper showing todays date. They refuse to allow you to withdraw without submitting this. Do not hand over this information to them, I asked how they processed my data, who the data controllers were, who provides the verification service and what happens to my data once verified, they were unable to answer any of these questions.
 
-## So bad
+**Review 3**
 
 My game crashed several times while playing took my money but didn't stop spinning. Half the wins didn't add to my account. Wouldn't bother with this casino again. Totally rubbish.
 
 # Good reviews (5 stars):
 
-## **Fun games with fast withdrawal**
+**Review 1**
 
 Fun games with fast withdrawal
 
@@ -150,17 +150,17 @@ I actually won the mega blast pot £1500 it was in my bank within the hour .
 
 You opt in before you play a game couldn’t believe it when I won the mega.
 
-## **Really good customer service**
+**Review 2**
 
 Really good customer service. Had a problem verifying my account and a agent sorted it out within minutes so I could withdraw my big win
 
-## **Great site**
+**Review 3**
 
 I can only praise this company. I have played their Slingo games and won on them. The win money has been deposited in my bank account after a couple of days. I can only speak as I find and have found no problem with them. Long may it continue.
 
 # Book of Ra Deluxe:
 
-![Book of Ra Deluxe](image/BookofRD.png)
+![Book of Ra Deluxe](raw%20research/image/BookofRD.png)
 
 The UI of Book of Ra Deluxe is themed around ancient Egypt, with pyramids, explorers, scarabs, pharaohs, and treasure symbols filling the screen. The reels are centered in a traditional 5x3 layout, while the controls for betting, paylines, autoplay, and spinning are kept simple below the reels. The graphics are more old-school than modern slots, with darker gold and brown tones, simple animations, and a casino-style look that feels nostalgic rather than flashy.
 
@@ -184,10 +184,10 @@ The UX of Book of Ra Deluxe is focused on simple gameplay with a high-risk, high
 
 Couldn’t copy paste, sorry guys
 
-![Bad Reviews](image/68A0394C-CF6B-4C70-A6D1-1FD3BADE88C7.png)
+![Bad Reviews](raw%20research/image/68A0394C-CF6B-4C70-A6D1-1FD3BADE88C7.png)
 
 ## Good Reviews (5 stars):
-![Good reviews](image/F3CEE9F6-DCAE-4F3A-9991-F0E47093BD29.png)
+![Good reviews](raw%20research/image/F3CEE9F6-DCAE-4F3A-9991-F0E47093BD29.png)
 
 ---
 
@@ -195,7 +195,7 @@ Couldn’t copy paste, sorry guys
 
 by Aaron
 
-![Dead or Alive 2](image/Dead_or_Alive_2.png)
+![Dead or Alive 2](raw%20research/image/Dead_or_Alive_2.png)
 
 ## UI / UX
 
@@ -249,7 +249,7 @@ The UX feels slower and more focused compared to other slots. There are fewer an
 
 By Yang
 
-![Age of The Gods 2](image/Age_of_The_Gods_2.png)
+![Age of The Gods 2](raw%20research/image/Age_of_The_Gods_2.png)
 
 ## UI / UX
 
