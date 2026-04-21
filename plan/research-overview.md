@@ -189,45 +189,6 @@ Couldn’t copy paste, sorry guys
 ## Good Reviews (5 stars):
 ![Good reviews](image/F3CEE9F6-DCAE-4F3A-9991-F0E47093BD29.png)
 
-
-
-# Guns ‘n’ Roses
-
-by Andrew
-
-![Guns N Roses](image/Guns_n_Roses.png)
-
-## UI / UX
-
-The UI of Guns N’ Roses slot is very colorful and rock-themed. It uses a concert-style background with stage lights and a dark design that makes the symbols stand out. The symbols include guitars, roses, band members, and music-related icons, which clearly match the theme.
-
-Most controls are placed at the bottom of the screen, including spin, autoplay, bet size, and coin value. The spin button is large and centered, making it easy to find. The layout is clear and not too crowded.
-
-The UX feels smooth and engaging. The animations, fire effects, and bonus symbols make the game exciting. Players can quickly understand how to spin and adjust bets, but there are still many visual effects that may feel a little overwhelming for beginners.
-
-## Features
-
-- RTP Rate: Around 96% (average for online slots)
-- Volatility: Medium to high volatility (bigger wins but less frequent)
-- Reel System: 5 x 3 reels
-- Bonus Feature: Bonus symbols (record icons) can trigger free spins or bonus rounds
-- Wild Symbol: Substitutes for other symbols to create winning combinations
-- Autoplay: Allows automatic spins
-- Max Bet / Adjustable Bet: Players can change bet size easily
-- Music Theme: Strong integration with Guns N’ Roses songs and visuals
-
-## Bad Reviews (1 star)
-
-1. Stupid trash ass game don’t even play unless you like donating cash
-2. not recomended to play for money
-3. The more of feature, the better? I can't agree with this one. Here we have a bunch of features and a lot of different possibilities during the bonus game AND the result is? Nothing. The best I have seen so far is 50x the bet with some perfect looking features but this is it. Big entertainment and besides this an averige game. The bonus round is very hard to get because of the bonus symbols appearing on reels 1, 3 and 5 only which minimized the possibility of getting it. You can consider yourself lucky after some 300 spins to see what happens. You might get some free spins or some other things. Mostly it cover the loses from 300 spins. For big FANS probably and people looking for entertainment and of course loving the music because this is the most important part apparently. I have to say this one: a slot like Minotaurus with 10 paylines only and ONE single feature but it is the perfect feature I have ever seen gives me after some 150 spins about 200x or even 450x the bet. With GnR you have to dream about this for a very long time. In my opinion this is a good slot for wagering because it does not seems to kill you and it covers the losses pretty often. But for winning? I doubt it very seriously.
-
-## Good Reviews (5 stars)
-
-1. I play this slot a lot of time and almost everytime he don't left me with nothing, Cool Guns N Roses music btw too is cool fun with this slot.
-2. I really liked this slot. It doesn't seem to play the same way it did at first but I still give this one 5 stars and a tip of the bass guitar 🎸🎶 one of my all time favorites. I love plucking along to the tune of them sweet winning chords! -keithsr 🎹🎷🎺🎸
-3. Awesome game full of very good features! I love this game all the way. Nothing beats the feeling when you fullfill the crowd meter n manage to find three fs symbols while filling it!
-
 ---
 
 # Dead or Alive 2
@@ -497,3 +458,51 @@ Bad Reviews:
      - Includes special bonus rounds
   5. Accessibility & Engagement
      - Anytime, anywhere
+
+    
+# Sweet Bonanza
+
+By Andrew Lopez 
+
+Maker: Pragmatic Play
+
+Theme: Candy / Sweets
+
+Reel System: 6 x 5 Grid
+
+RTP: 96.51%
+
+Volatility: High
+
+## UI/UX Design 
+- The interface of Sweet Bonanza is a masking high-risk game that is very colorful, using bright colors with a pastel-colored candyland background theme very similar to Candy Crush. The symbols in the game are fruits such as apples, plums, and bananas, which are depicted by high-value 3D candies. The user experience is built around keeping player momentum high, even during losing streaks. 
+
+- Layout: 
+   - The layout is a massive 6 x 5 grid that is in the center of the screen, which can be controlled by the player. Such controls include bet size, autoplay, and Ante-Bet toggle, which are kept at the bottom of the screen.
+
+- Visual Clarity:
+   - Because the game uses "Scatter Pays" (where 8 or more matching symbols anywhere on the screen trigger a win, rather than traditional left-to-right paylines), the symbols are designed to be distinct at a quick glance. There are no confusing payline overlays, making it incredibly easy for beginners to read the board.
+
+ - The Tumble Feature (Cascading Reels):
+    - When a winning cluster hits, the symbols pop and disappear, and new symbols fall into the empty spaces. This creates a chain reaction. The UX benefit here is that a single paid spin can result in multiple consecutive wins, making the player feel like they are getting "free" action and extending their playtime.
+
+- Fast Resolution:
+   - Unlike many high-volatility slots that use long, drawn-out animations for "near misses," Sweet Bonanza resolves spins very quickly. If a spin is a loser, the game immediately lets the player spin again, preventing frustration and keeping the pacing smooth.
+
+- Audio Engineering:
+   - The base game features a relaxing, upbeat soundtrack. However, the audio shifts dynamically. When the Free Spins feature is triggered, or when a massive Tumble sequence begins, the music builds to a crescendo to increase tension. The physical "pop" and "thud" of the candies disappearing and dropping also provides satisfying auditory feedback.
+
+- The Multiplier Drop (Tension Building):
+   - During the Free Spins round, "Rainbow Bomb" symbols drop onto the grid with multipliers ranging from 2x to 100x. The UX brilliance here is that the multiplier bomb sits on the screen while the tumbling wins happen, building massive anticipation before the final multiplied payout is calculated at the end of the tumble sequence.
+  
+
+## Good Reviews(Focused on UI/UX):
+1. "The clean interface and smooth performance make the game enjoyable, with the cascading win system adding excitement. The sound and visuals complement each other, creating a clear and engaging experience."
+
+2. "Every spin feels like it could turn into something massive, and the multiplier bombs during free spins are what keep me coming back. The scatter pay system makes it easy to follow along without overthinking paylines."
+
+
+## Bad Reviews(Focused on UI/UX): 
+1. "Because it is so highly volatile, the base game is mostly just dead spins. It feels flat until something meaningful connects, making long sessions feel monotonous and visually repetitive."
+
+2. "The music gets incredibly repetitive after about ten minutes. While the cheerful tone fits the theme, I usually end up playing it on mute during longer sessions."
