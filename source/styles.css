@@ -1,0 +1,110 @@
+:root {
+  --bg: #f3f4f6;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #d97706;
+  --accent-hover: #b45309;
+  --win: #166534;
+  --loss: #b91c1c;
+  --border: #d1d5db;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.app {
+  width: min(480px, 100%);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.machine {
+  margin-bottom: 16px;
+}
+
+.reels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.reel {
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  min-height: 88px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  background: #f9fafb;
+}
+
+.status {
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.status p {
+  margin: 4px 0;
+}
+
+.result {
+  font-weight: 600;
+  color: var(--muted);
+  min-height: 1.5em;
+}
+
+.result.win {
+  color: var(--win);
+}
+
+.result.loss {
+  color: var(--loss);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover:enabled {
+  background: var(--accent-hover);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

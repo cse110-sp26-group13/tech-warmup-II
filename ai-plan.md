@@ -10,7 +10,7 @@ Use AI to help build a significantly improved slot machine game while documentin
 
 We will use one approved AI coding assistant consistently for this warm-up:
 
-- OpenAI Codex
+- OpenAI Codex: GPT-5.3-Codex
 
 We will keep using the same harness throughout the project as required by the assignment.
 

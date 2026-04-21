@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slot Machine v1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>Slot Machine v1</h1>
+
+      <section class="machine" aria-label="Slot machine">
+        <div class="reels" id="reels" aria-live="polite">
+          <div class="reel" data-reel="0">🍒</div>
+          <div class="reel" data-reel="1">🍋</div>
+          <div class="reel" data-reel="2">🔔</div>
+        </div>
+      </section>
+
+      <section class="status" aria-label="Game status">
+        <p>Balance: <strong id="balance">$0</strong></p>
+        <p>Fixed Bet: <strong id="bet">$0</strong></p>
+        <p id="result" class="result">Press Spin to play.</p>
+      </section>
+
+      <section class="controls" aria-label="Game controls">
+        <button id="spinButton" type="button">Spin</button>
+      </section>
+    </main>
+
+    <script src="js/config.js" defer></script>
+    <script src="js/slotMachine.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
