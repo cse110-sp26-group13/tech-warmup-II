@@ -1,9 +1,11 @@
 class SlotMachineUI {
   constructor() {
-    this.reelElements = Array.from(document.querySelectorAll(".reel"));
-    this.reelSymbolElements = this.reelElements.map((reel) => reel.querySelector(".reel-symbol"));
+    this.reelsContainer = document.getElementById("reels");
+    this.reelElements = [];
+    this.reelSymbolElements = [];
     this.balanceElement = document.getElementById("balance");
     this.betElement = document.getElementById("bet");
+    this.boardSizeElement = document.getElementById("boardSize");
     this.resultElement = document.getElementById("result");
     this.spinButton = document.getElementById("spinButton");
     this.spinControlLabel = document.getElementById("spinControlLabel");
@@ -15,10 +17,56 @@ class SlotMachineUI {
     return `$${value}`;
   }
 
+  buildBoard({ columnCount, rowCount, symbols = [] }) {
+    if (!this.reelsContainer) {
+      return;
+    }
+
+    this.reelsContainer.style.setProperty("--grid-columns", String(columnCount));
+    this.reelsContainer.innerHTML = "";
+
+    const totalCells = columnCount * rowCount;
+
+    for (let cellIndex = 0; cellIndex < totalCells; cellIndex += 1) {
+      const reelElement = document.createElement("div");
+      reelElement.className = "reel";
+      reelElement.dataset.reel = String(cellIndex);
+
+      const reelCylinder = document.createElement("div");
+      reelCylinder.className = "reel-cylinder";
+
+      const reelSymbol = document.createElement("span");
+      reelSymbol.className = "reel-symbol";
+      reelSymbol.textContent = symbols[cellIndex] || "❔";
+
+      reelCylinder.append(reelSymbol);
+      reelElement.append(reelCylinder);
+      this.reelsContainer.append(reelElement);
+    }
+
+    this.reelElements = Array.from(this.reelsContainer.querySelectorAll(".reel"));
+    this.reelSymbolElements = this.reelElements.map((reel) => reel.querySelector(".reel-symbol"));
+    this.renderBoardSize(columnCount, rowCount);
+  }
+
+  normalizeSymbols(reels) {
+    if (!Array.isArray(reels)) {
+      return [];
+    }
+
+    if (Array.isArray(reels[0])) {
+      return reels.flat();
+    }
+
+    return reels;
+  }
+
   renderReels(reels) {
+    const normalizedReels = this.normalizeSymbols(reels);
+
     this.reelSymbolElements.forEach((reelSymbolElement, index) => {
       if (reelSymbolElement) {
-        reelSymbolElement.textContent = reels[index] || "❔";
+        reelSymbolElement.textContent = normalizedReels[index] || "❔";
       }
     });
   }
@@ -33,6 +81,32 @@ class SlotMachineUI {
 
   startSpinning() {
     this.reelElements.forEach((reelElement) => {
+      reelElement.classList.add("is-spinning");
+    });
+  }
+
+  startSingleReel(index) {
+    const reelElement = this.reelElements[index];
+
+    if (reelElement) {
+      reelElement.classList.add("is-spinning");
+    }
+  }
+
+  syncSpinningReels(indexes) {
+    const spinningReels = indexes
+      .map((index) => this.reelElements[index])
+      .filter(Boolean);
+
+    spinningReels.forEach((reelElement) => {
+      reelElement.classList.remove("is-spinning");
+    });
+
+    if (this.reelsContainer) {
+      void this.reelsContainer.offsetWidth;
+    }
+
+    spinningReels.forEach((reelElement) => {
       reelElement.classList.add("is-spinning");
     });
   }
@@ -57,6 +131,12 @@ class SlotMachineUI {
 
   renderBet(fixedBet) {
     this.betElement.textContent = this.formatMoney(fixedBet);
+  }
+
+  renderBoardSize(columnCount, rowCount) {
+    if (this.boardSizeElement) {
+      this.boardSizeElement.textContent = `${columnCount} x ${rowCount}`;
+    }
   }
 
   setSpinButtonState({ canSpin, isSpinning, noBalance }) {
