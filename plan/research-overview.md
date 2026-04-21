@@ -1,3 +1,17 @@
+## Contributor Key
+
+| Contributor | Contributions |
+| --- | --- |
+| Ophir | Starburst research (UI/UX, features, and review synthesis) |
+| Shazi Bidarian | Rainbow Riches research (UI/UX, features, and review synthesis) |
+| Aaron | Dead or Alive 2 research (UI/UX, features, and review synthesis) |
+| Yang | Age of The Gods 2 research (UI/UX, features, and review synthesis) |
+| Jeong | Mega Moolah research (theme, features, and overview notes) |
+| Jeremy | 88 Fortunes research (maker/theme/features and review notes) |
+| Aidan | Blood Suckers research (maker/theme/features and review notes) |
+| Jiangxi | Mac app research: Xtreme Slots: Vegas Casino (reviews and features) |
+| Stephanie | Mac app research: Cash Frenzy - Slots Casino (reviews and features) |
+| Andrew Lopez | Sweet Bonanza research (UI/UX and review synthesis) |
 
 ---
 
