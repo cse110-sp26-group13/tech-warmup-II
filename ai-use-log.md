@@ -170,6 +170,78 @@
   Can you also add a clickable lever to the right side of the slot machine, make sure the functionality is clean and fun.
 </details>
 
+<details>
+  <summary>Prompt 20: rearranging</summary>
+
+  For the formatting of the game, I want the spin button and the balance information on the same line, not two separate blocks.
+
+  Not just the "balance"; everything that was in there should be on that one line.
+</details>
+
+<details>
+  <summary>Prompt 21: modifying rearranging</summary>
+
+  Place the spin button on the right side.
+</details>
+
+<details>
+  <summary>Prompt 22: clickable rules popup</summary>
+
+  Add a rules clickable popup.
+</details>
+
+<details>
+  <summary>Prompt 23: theming slot machine icons</summary>
+
+  I am really trying to sell this pirate theme; can you make new slot machine icons to look super fun pirate-themed gambling.
+</details>
+
+<details>
+  <summary>Prompt 24: modifying icons</summary>
+
+  Looks better. Maybe also try incorporating or swapping in some letters and numbers; we're building a gambling slot machine.
+</details>
+
+<details>
+  <summary>Prompt 25: importing new background</summary>
+
+  Can you change the background to the GIF I just added in `assets`.
+
+  I feel like it does not really match the theme of the game that much. Is there anything we can alter to the GIF.
+</details>
+
+<details>
+  <summary>Prompt 26: coin GIF implementation</summary>
+
+  I want fun animations on wins. Can you implement a win animation that pops up in the center and rains gold coins (like Mario-styled, and 3D so they are able to rotate).
+</details>
+
+<details>
+  <summary>Prompt 27: more coin GIF</summary>
+
+  I want more in-your-face feedback, and the bigger the win, the more coins.
+</details>
+
+<details>
+  <summary>Prompt 28: more coin GIF</summary>
+
+  If it is not a super big win, do not do too much. Only go heavy for super big wins, and max wins should maybe be a red color, like there are levels.
+</details>
+
+<details>
+  <summary>Prompt 29: more coin GIF</summary>
+
+  Make the coins way bigger, I want to be showered in money.
+
+  I added a gold coin animation but the background is not dropping, so find a workaround or I need a new PNG.
+</details>
+
+<details>
+  <summary>Prompt 30: more coin GIF</summary>
+
+  Make the coins huge and I want more coins. I want to be smacked in the face by coins if I win.
+</details>
+
 ## Reasoning
 We tried the first prompt on both Codex and Claude to see whether either model could output a functioning slot machine. However, both models failed to do so. Because of this, we slightly simplified the prompt and increased the reasoning level from medium to high on the chosen Codex model to get a better output. On the second run, we got a workable baseline and made small feature improvements to stabilize the first functional version of the machine.
 
