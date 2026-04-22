@@ -19,8 +19,12 @@ class SlotMachineUI {
     this.rulesFixedBetElement = document.getElementById("rulesFixedBet");
     this.rulesPayoutRowsElement = document.getElementById("rulesPayoutRows");
     this.winCelebrationElement = document.getElementById("winCelebration");
+    this.winCelebrationLabelElement = this.winCelebrationElement?.querySelector(
+      ".win-celebration-label"
+    );
     this.winCelebrationAmountElement = document.getElementById("winCelebrationAmount");
     this.coinRainElement = document.getElementById("coinRain");
+    this.animatedCoinAssetPath = "assets/coin.gif";
     this.currencyFormatter = new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
@@ -43,48 +47,233 @@ class SlotMachineUI {
     return new Promise((resolve) => setTimeout(resolve, durationMs));
   }
 
-  buildCoinElement() {
+  clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  getWinCelebrationProfile(totalPayout, fixedBet) {
+    const payout = Math.max(0, Number(totalPayout) || 0);
+    const bet = Math.max(1, Number(fixedBet) || 1);
+    const winMultiple = payout / bet;
+    let tier = "small";
+    if (winMultiple >= 7 || payout >= 70) {
+      tier = "max";
+    } else if (winMultiple >= 4 || payout >= 35) {
+      tier = "mega";
+    } else if (winMultiple >= 2.2 || payout >= 20) {
+      tier = "big";
+    } else if (winMultiple >= 1.1 || payout >= 10) {
+      tier = "medium";
+    }
+
+    const settingsByTier = {
+      small: {
+        intensity: 0.16,
+        coinBase: 40,
+        coinPerPayout: 4.4,
+        coinPerMultiple: 16,
+        coinMax: 120,
+        durationMs: 1700,
+        cardPeakScale: 1.03,
+        burstPeakScale: 1.14,
+        overlayOpacity: 0,
+        shakeDistance: 0,
+      },
+      medium: {
+        intensity: 0.28,
+        coinBase: 70,
+        coinPerPayout: 5.8,
+        coinPerMultiple: 22,
+        coinMax: 180,
+        durationMs: 2100,
+        cardPeakScale: 1.06,
+        burstPeakScale: 1.2,
+        overlayOpacity: 0,
+        shakeDistance: 0,
+      },
+      big: {
+        intensity: 0.4,
+        coinBase: 110,
+        coinPerPayout: 7.6,
+        coinPerMultiple: 30,
+        coinMax: 260,
+        durationMs: 2450,
+        cardPeakScale: 1.1,
+        burstPeakScale: 1.3,
+        overlayOpacity: 0,
+        shakeDistance: 0,
+      },
+      mega: {
+        intensity: 0.72,
+        coinBase: 170,
+        coinPerPayout: 9.8,
+        coinPerMultiple: 40,
+        coinMax: 360,
+        durationMs: 3250,
+        cardPeakScale: 1.2,
+        burstPeakScale: 1.62,
+        overlayOpacity: 0.54,
+        shakeDistance: 8,
+      },
+      max: {
+        intensity: 1,
+        coinBase: 240,
+        coinPerPayout: 12.4,
+        coinPerMultiple: 48,
+        coinMax: 480,
+        durationMs: 3900,
+        cardPeakScale: 1.28,
+        burstPeakScale: 1.95,
+        overlayOpacity: 0.72,
+        shakeDistance: 12,
+      },
+    };
+    const tierSettings = settingsByTier[tier];
+    const intensity = tierSettings.intensity;
+    const coinCount = this.clamp(
+      Math.round(
+        tierSettings.coinBase +
+          payout * tierSettings.coinPerPayout +
+          winMultiple * tierSettings.coinPerMultiple
+      ),
+      tierSettings.coinBase,
+      tierSettings.coinMax
+    );
+    const useHeavyFx = tier === "mega" || tier === "max";
+
+    return {
+      payout,
+      intensity,
+      tier,
+      winMultiple,
+      useHeavyFx,
+      coinCount,
+      maxDelayMs: Math.round(260 + intensity * 1180),
+      coinSizeMin: Math.round(92 + intensity * 34),
+      coinSizeMax: Math.round(190 + intensity * 120),
+      driftMax: Math.round(220 + intensity * 440),
+      fallMinMs: Math.round(3200 - intensity * 700),
+      fallMaxMs: Math.round(6200 + intensity * 1200),
+      spinMinMs: Math.round(360 - intensity * 90),
+      spinMaxMs: Math.round(900 - intensity * 140),
+      durationMs: tierSettings.durationMs,
+      cardPeakScale: tierSettings.cardPeakScale.toFixed(3),
+      burstPeakScale: tierSettings.burstPeakScale.toFixed(3),
+      appShakeDistance: `${tierSettings.shakeDistance}px`,
+      overlayOpacity: tierSettings.overlayOpacity.toFixed(3),
+    };
+  }
+
+  getWinLabelByTier(tier) {
+    if (tier === "max") {
+      return "MAX WIN!";
+    }
+
+    if (tier === "mega") {
+      return "SUPER BIG WIN!";
+    }
+
+    if (tier === "big") {
+      return "BIG WIN!";
+    }
+
+    if (tier === "medium") {
+      return "NICE WIN!";
+    }
+
+    return "WIN!";
+  }
+
+  buildCoinElement(profile) {
     const coinElement = document.createElement("span");
     coinElement.className = "coin-drop";
-    coinElement.style.setProperty("--coin-size", `${Math.floor(24 + Math.random() * 18)}px`);
+    const sizeRange = Math.max(1, profile.coinSizeMax - profile.coinSizeMin);
+    const driftRange = profile.driftMax * 2;
+    const fallRange = Math.max(1, profile.fallMaxMs - profile.fallMinMs);
+    const spinRange = Math.max(1, profile.spinMaxMs - profile.spinMinMs);
+    const rollBase = 90 + profile.intensity * 180;
+    const turnMagnitude = (1 + Math.random() * 0.9 + profile.intensity * 0.8).toFixed(2);
+
+    coinElement.style.setProperty(
+      "--coin-size",
+      `${Math.round(profile.coinSizeMin + Math.random() * sizeRange)}px`
+    );
     coinElement.style.setProperty("--coin-x-start", `${Math.floor(Math.random() * 96 + 2)}vw`);
-    coinElement.style.setProperty("--coin-drift", `${Math.floor(Math.random() * 180 - 90)}px`);
-    coinElement.style.setProperty("--coin-roll", `${Math.floor(Math.random() * 140 - 70)}deg`);
-    coinElement.style.setProperty("--coin-fall-duration", `${Math.floor(1200 + Math.random() * 900)}ms`);
-    coinElement.style.setProperty("--coin-fall-delay", `${Math.floor(Math.random() * 420)}ms`);
+    coinElement.style.setProperty(
+      "--coin-drift",
+      `${Math.round(Math.random() * driftRange - profile.driftMax)}px`
+    );
+    coinElement.style.setProperty(
+      "--coin-roll",
+      `${Math.round(Math.random() * (rollBase * 2) - rollBase)}deg`
+    );
+    coinElement.style.setProperty(
+      "--coin-fall-duration",
+      `${Math.round(profile.fallMinMs + Math.random() * fallRange)}ms`
+    );
+    coinElement.style.setProperty(
+      "--coin-fall-delay",
+      `${Math.round(Math.random() * profile.maxDelayMs)}ms`
+    );
+    coinElement.style.setProperty(
+      "--coin-end-y",
+      `${Math.round(145 + Math.random() * 70)}vh`
+    );
 
-    const coinBody = document.createElement("span");
-    coinBody.className = "coin-body";
-    coinBody.style.setProperty("--coin-spin-duration", `${Math.floor(460 + Math.random() * 520)}ms`);
-    coinBody.style.setProperty("--coin-tilt-x", `${Math.floor(56 + Math.random() * 28)}deg`);
-    coinBody.style.setProperty("--coin-tilt-z", `${Math.floor(Math.random() * 40 - 20)}deg`);
-    coinBody.style.setProperty("--coin-turn", Math.random() > 0.5 ? "1turn" : "-1turn");
+    const direction = Math.random() > 0.5 ? 1 : -1;
+    const turnValue = (direction * Number(turnMagnitude)).toFixed(2);
+    const turnHalfValue = (direction * Number(turnMagnitude) * 0.5).toFixed(2);
 
-    const frontFace = document.createElement("span");
-    frontFace.className = "coin-face coin-face-front";
-    frontFace.textContent = "$";
+    const coinSprite = document.createElement("span");
+    coinSprite.className = "coin-sprite";
+    coinSprite.style.backgroundImage = `url("${this.animatedCoinAssetPath}")`;
+    coinSprite.style.setProperty(
+      "--coin-spin-duration",
+      `${Math.round(profile.spinMinMs + Math.random() * spinRange)}ms`
+    );
+    coinSprite.style.setProperty("--coin-wobble", `${Math.round(6 + Math.random() * 10)}deg`);
+    coinSprite.style.setProperty("--coin-turn-half", `${turnHalfValue}turn`);
+    coinSprite.style.setProperty("--coin-turn", `${turnValue}turn`);
 
-    const edgeFace = document.createElement("span");
-    edgeFace.className = "coin-edge";
-
-    const backFace = document.createElement("span");
-    backFace.className = "coin-face coin-face-back";
-    backFace.textContent = "$";
-
-    coinBody.append(frontFace, edgeFace, backFace);
-    coinElement.append(coinBody);
+    coinElement.append(coinSprite);
 
     return coinElement;
   }
 
-  showWinCelebration(totalPayout) {
+  showWinCelebration(totalPayout, fixedBet = 1) {
     if (!this.winCelebrationElement) {
       return;
     }
 
+    const profile = this.getWinCelebrationProfile(totalPayout, fixedBet);
+    const celebrationLifetimeMs = Math.max(
+      profile.durationMs,
+      profile.maxDelayMs + profile.fallMaxMs + 320
+    );
+
     if (this.winCelebrationTimeoutId !== null) {
       clearTimeout(this.winCelebrationTimeoutId);
       this.winCelebrationTimeoutId = null;
+    }
+
+    document.body.classList.remove("is-win-celebrating");
+
+    this.winCelebrationElement.dataset.winTier = profile.tier;
+    this.winCelebrationElement.dataset.winImpact = profile.useHeavyFx ? "high" : "low";
+    this.winCelebrationElement.style.setProperty("--win-card-peak-scale", profile.cardPeakScale);
+    this.winCelebrationElement.style.setProperty("--win-burst-peak-scale", profile.burstPeakScale);
+    this.winCelebrationElement.style.setProperty("--win-overlay-opacity", profile.overlayOpacity);
+    this.winCelebrationElement.style.setProperty("--win-shake-distance", profile.appShakeDistance);
+    this.winCelebrationElement.style.setProperty("--win-celebration-duration", `${profile.durationMs}ms`);
+    document.body.style.setProperty("--win-shake-distance", profile.appShakeDistance);
+
+    if (profile.useHeavyFx) {
+      void document.body.offsetWidth;
+      document.body.classList.add("is-win-celebrating");
+    }
+
+    if (this.winCelebrationLabelElement) {
+      this.winCelebrationLabelElement.textContent = this.getWinLabelByTier(profile.tier);
     }
 
     if (this.winCelebrationAmountElement) {
@@ -94,8 +283,8 @@ class SlotMachineUI {
     if (this.coinRainElement) {
       this.coinRainElement.innerHTML = "";
 
-      for (let coinIndex = 0; coinIndex < 30; coinIndex += 1) {
-        this.coinRainElement.append(this.buildCoinElement());
+      for (let coinIndex = 0; coinIndex < profile.coinCount; coinIndex += 1) {
+        this.coinRainElement.append(this.buildCoinElement(profile));
       }
     }
 
@@ -105,13 +294,14 @@ class SlotMachineUI {
 
     this.winCelebrationTimeoutId = setTimeout(() => {
       this.winCelebrationElement.classList.remove("is-active");
+      document.body.classList.remove("is-win-celebrating");
 
       if (this.coinRainElement) {
         this.coinRainElement.innerHTML = "";
       }
 
       this.winCelebrationTimeoutId = null;
-    }, 2800);
+    }, celebrationLifetimeMs);
   }
 
   setupRulesDialog() {

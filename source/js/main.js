@@ -154,7 +154,7 @@ async function playCascades(outcome) {
 
 function showRoundSummary(outcome) {
   if (outcome.didWin) {
-    ui.showWinCelebration(outcome.totalPayout);
+    ui.showWinCelebration(outcome.totalPayout, GAME_CONFIG.fixedBet);
     const netPrefix = outcome.netChange >= 0 ? "+" : "";
     const tumbleSuffix = outcome.cascades.length === 1 ? "" : "s";
     ui.showResult(
