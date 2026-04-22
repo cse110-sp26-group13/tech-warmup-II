@@ -22,6 +22,7 @@ The goal of this project was to explore how AI tools can assist in building soft
 - Pirate themed symbols used in the slots(eg. skulls, anchors, canons, gold coins, etc)
 - Huge gold coin flow animation on major wins
 - Game Rules feature to assist users
+- Adjusted payout values and assigned rarities to symbols
 
 ### How to Play
 1. Read the rules to decide what difficulty and mode(light/dark) to play on
@@ -64,7 +65,7 @@ During the first ai-prompt run we tested in on both Codex and Claude to if both 
 
 ### Clean Code Practices
 - Added new small features one at a time, usually split up, one per person
-- Constantly test new features
+- Constantly tested new features
 
 ---
 
@@ -73,48 +74,28 @@ During the first ai-prompt run we tested in on both Codex and Claude to if both 
 During development, we encountered several challenges:
 
 ### AI-related issues
-- [Example: AI generated incorrect logic]
-- [Example: inconsistent or overcomplicated code]
-- [Example: required multiple prompt iterations]
+- Often misunderstood prompts, so they had to be adjusted/modified to be more specific, smaller requests.
+- AI idn't quite understand win-rates in a typical gambing setting, so that also had to be adjusted. 
 
 ### Engineering challenges
 - Adjusting how rewarding the slot machine
+- Adding in our own gifs for animations
+- Adding different difficulties & modes
+- Making sure everyone knew what their task/feature was and that it was completed
+
 
 ---
 
-## 6. Key Insights & Learnings
-
-From this project, we learned:
-
-- AI is effective for scaffolding and boilerplate generation
-- AI struggles with consistency across larger systems
-- Clear, constrained prompts produce better results
-- Testing early is critical when using AI-generated code
-- Human oversight is still necessary for correctness and structure
-
----
-
-## 7. Reflection
+## 6. Reflection
 
 ### What worked well
-- [AI helped speed up development]
-- [Feature iteration was faster]
-- [Debugging assistance]
+- AI definitely sped up a lot of the processes
+- When it fully understand what we're asking, it does it somewhat well
 
 ### What didn’t work well
-- [AI sometimes produced incorrect or overcomplex solutions]
-- [Required multiple iterations to fix issues]
+- Still required human intervention at times, leading to modifying prompts or even back tracking
+- AI doesn't understand how a slot machine should be "engaging" to humans, so we had to go back in to correct prompts as, for instance, the spin button was spammable, which is definitely not realistic in a real-world scenario. 
 
 ### Final thoughts
-[Your honest reflection on AI-assisted development]
 
-We conclude that AI is a powerful tool for software development, but it requires careful prompting, validation, and engineering discipline to produce reliable results.
-
----
-
-## 8. Repository & Workflow Evidence
-
-- Commit history shows iterative development
-- AI use is documented in `ai-use-log.md`
-- Planning artifacts are stored in `/plan`
-- Code was tested and linted during development
+We conclude that AI can be a powerful tool in the development/design process of a product, but requires extensive checking, testing, and the right prompts in order to be effective.
