@@ -5,6 +5,7 @@ class SlotMachine {
     this.columnCount = columnCount;
     this.rowCount = rowCount;
     this.symbols = symbols;
+    this.totalSymbolWeight = symbols.reduce((sum, symbol) => sum + symbol.weight, 0);
     this.isSpinning = false;
   }
 
@@ -20,9 +21,26 @@ class SlotMachine {
     return !this.isSpinning && this.balance >= this.fixedBet;
   }
 
+  roundMoney(value) {
+    return Math.round(value * 100) / 100;
+  }
+
+  cloneBoard(board) {
+    return board.map((row) => [...row]);
+  }
+
   getRandomSymbol() {
-    const randomIndex = Math.floor(Math.random() * this.symbols.length);
-    return this.symbols[randomIndex];
+    let remainingWeight = Math.random() * this.totalSymbolWeight;
+
+    for (const symbol of this.symbols) {
+      remainingWeight -= symbol.weight;
+
+      if (remainingWeight <= 0) {
+        return symbol.id;
+      }
+    }
+
+    return this.symbols[this.symbols.length - 1].id;
   }
 
   buildRandomReels() {
@@ -31,70 +49,87 @@ class SlotMachine {
     );
   }
 
-  getLongestRun(line) {
-    let bestRun = { symbol: null, length: 0 };
-    let currentSymbol = null;
-    let currentLength = 0;
-
-    line.forEach((symbol) => {
-      if (symbol === currentSymbol) {
-        currentLength += 1;
-      } else {
-        currentSymbol = symbol;
-        currentLength = 1;
-      }
-
-      if (currentLength > bestRun.length) {
-        bestRun = { symbol: currentSymbol, length: currentLength };
-      }
-    });
-
-    return bestRun;
-  }
-
-  evaluateBestLine(board) {
-    const bestLine = {
-      symbol: null,
-      length: 0,
-      direction: null,
-      index: -1,
-    };
+  getWinningGroups(board) {
+    const positionsBySymbol = new Map();
 
     board.forEach((row, rowIndex) => {
-      const rowRun = this.getLongestRun(row);
+      row.forEach((symbolId, columnIndex) => {
+        const cellIndex = rowIndex * this.columnCount + columnIndex;
 
-      if (rowRun.length > bestLine.length) {
-        Object.assign(bestLine, rowRun, { direction: "row", index: rowIndex });
-      }
+        if (!positionsBySymbol.has(symbolId)) {
+          positionsBySymbol.set(symbolId, []);
+        }
+
+        positionsBySymbol.get(symbolId).push(cellIndex);
+      });
     });
 
-    for (let columnIndex = 0; columnIndex < this.columnCount; columnIndex += 1) {
-      const column = board.map((row) => row[columnIndex]);
-      const columnRun = this.getLongestRun(column);
+    return this.symbols
+      .map((symbol) => {
+        const matchedIndexes = positionsBySymbol.get(symbol.id) || [];
 
-      if (columnRun.length > bestLine.length) {
-        Object.assign(bestLine, columnRun, { direction: "column", index: columnIndex });
+        if (matchedIndexes.length < symbol.minCount) {
+          return null;
+        }
+
+        const extraCount = matchedIndexes.length - symbol.minCount;
+        const payout = this.roundMoney(
+          this.fixedBet * (symbol.baseMultiplier + extraCount * symbol.extraMultiplier)
+        );
+
+        return {
+          symbolId: symbol.id,
+          icon: symbol.icon,
+          count: matchedIndexes.length,
+          extraCount,
+          payout,
+          matchedIndexes,
+        };
+      })
+      .filter(Boolean)
+      .sort((left, right) => right.payout - left.payout || right.count - left.count);
+  }
+
+  tumbleBoard(board, matchedIndexes) {
+    const nextBoard = this.cloneBoard(board);
+    const matchedIndexSet = new Set(matchedIndexes);
+
+    for (let columnIndex = 0; columnIndex < this.columnCount; columnIndex += 1) {
+      const remainingSymbols = [];
+
+      for (let rowIndex = this.rowCount - 1; rowIndex >= 0; rowIndex -= 1) {
+        const cellIndex = rowIndex * this.columnCount + columnIndex;
+
+        if (!matchedIndexSet.has(cellIndex)) {
+          remainingSymbols.push(board[rowIndex][columnIndex]);
+        }
+      }
+
+      const refillCount = this.rowCount - remainingSymbols.length;
+      const refillSymbols = Array.from({ length: refillCount }, () => this.getRandomSymbol());
+      const finalColumnBottomUp = [...remainingSymbols, ...refillSymbols];
+
+      for (
+        let rowIndex = this.rowCount - 1, writeIndex = 0;
+        rowIndex >= 0;
+        rowIndex -= 1, writeIndex += 1
+      ) {
+        nextBoard[rowIndex][columnIndex] = finalColumnBottomUp[writeIndex];
       }
     }
 
-    return bestLine;
-  }
-
-  calculatePayout(board) {
-    const bestLine = this.evaluateBestLine(board);
-    let payout = 0;
-
-    if (bestLine.length >= 6) {
-      payout = this.fixedBet * 12;
-    } else if (bestLine.length === 5) {
-      payout = this.fixedBet * 8;
-    } else if (bestLine.length === 4) {
-      payout = this.fixedBet * 4;
-    }
+    const droppedIndexes = [];
+    nextBoard.forEach((row, rowIndex) => {
+      row.forEach((symbolId, columnIndex) => {
+        if (symbolId !== board[rowIndex][columnIndex]) {
+          droppedIndexes.push(rowIndex * this.columnCount + columnIndex);
+        }
+      });
+    });
 
     return {
-      payout,
-      bestLine: payout > 0 ? bestLine : null,
+      board: nextBoard,
+      droppedIndexes,
     };
   }
 
@@ -109,16 +144,51 @@ class SlotMachine {
     await new Promise((resolve) => setTimeout(resolve, durationMs));
 
     const reels = this.buildRandomReels();
-    const { payout, bestLine } = this.calculatePayout(reels);
-    this.balance += payout;
+    let board = this.cloneBoard(reels);
+    let totalPayout = 0;
+    let cascadeIndex = 0;
+    const cascades = [];
+
+    while (cascadeIndex < 20) {
+      const wins = this.getWinningGroups(board);
+
+      if (wins.length === 0) {
+        break;
+      }
+
+      const matchedIndexes = Array.from(
+        new Set(wins.flatMap((winGroup) => winGroup.matchedIndexes))
+      );
+      const cascadePayout = this.roundMoney(
+        wins.reduce((sum, winGroup) => sum + winGroup.payout, 0)
+      );
+      totalPayout = this.roundMoney(totalPayout + cascadePayout);
+
+      const { board: tumbledBoard, droppedIndexes } = this.tumbleBoard(board, matchedIndexes);
+      cascades.push({
+        index: cascadeIndex + 1,
+        wins,
+        matchedIndexes,
+        cascadePayout,
+        totalPayout,
+        boardAfterTumble: this.cloneBoard(tumbledBoard),
+        droppedIndexes,
+        balanceAfterCascade: this.roundMoney(this.balance + totalPayout),
+      });
+
+      board = tumbledBoard;
+      cascadeIndex += 1;
+    }
+
+    this.balance += totalPayout;
     this.isSpinning = false;
 
     return {
       reels,
-      payout,
-      bestLine,
-      didWin: payout > 0,
-      netChange: payout - this.fixedBet,
+      cascades,
+      totalPayout,
+      didWin: totalPayout > 0,
+      netChange: this.roundMoney(totalPayout - this.fixedBet),
       balance: this.balance,
     };
   }

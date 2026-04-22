@@ -3,6 +3,7 @@ class SlotMachineUI {
     this.reelsContainer = document.getElementById("reels");
     this.reelElements = [];
     this.reelSymbolElements = [];
+    this.symbolLookup = new Map();
     this.balanceElement = document.getElementById("balance");
     this.betElement = document.getElementById("bet");
     this.boardSizeElement = document.getElementById("boardSize");
@@ -14,14 +15,39 @@ class SlotMachineUI {
   }
 
   formatMoney(value) {
-    return `$${value}`;
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(value);
   }
 
-  buildBoard({ columnCount, rowCount, symbols = [] }) {
+  getSymbolGlyph(symbolId) {
+    if (!symbolId) {
+      return "";
+    }
+
+    return this.symbolLookup.get(symbolId) || symbolId;
+  }
+
+  setCellSymbol(reelSymbolElement, symbolId) {
+    if (!reelSymbolElement) {
+      return;
+    }
+
+    const hasSymbol = Boolean(symbolId);
+    reelSymbolElement.textContent = hasSymbol ? this.getSymbolGlyph(symbolId) : "";
+    reelSymbolElement.dataset.symbolId = hasSymbol ? symbolId : "";
+    reelSymbolElement.classList.toggle("is-empty", !hasSymbol);
+  }
+
+  buildBoard({ columnCount, rowCount, symbols = [], symbolMap = {} }) {
     if (!this.reelsContainer) {
       return;
     }
 
+    this.symbolLookup = new Map(Object.entries(symbolMap));
     this.reelsContainer.style.setProperty("--grid-columns", String(columnCount));
     this.reelsContainer.innerHTML = "";
 
@@ -37,7 +63,7 @@ class SlotMachineUI {
 
       const reelSymbol = document.createElement("span");
       reelSymbol.className = "reel-symbol";
-      reelSymbol.textContent = symbols[cellIndex] || "❔";
+      this.setCellSymbol(reelSymbol, symbols[cellIndex] || null);
 
       reelCylinder.append(reelSymbol);
       reelElement.append(reelCylinder);
@@ -65,18 +91,13 @@ class SlotMachineUI {
     const normalizedReels = this.normalizeSymbols(reels);
 
     this.reelSymbolElements.forEach((reelSymbolElement, index) => {
-      if (reelSymbolElement) {
-        reelSymbolElement.textContent = normalizedReels[index] || "❔";
-      }
+      this.setCellSymbol(reelSymbolElement, normalizedReels[index] || null);
     });
   }
 
-  renderSingleReel(index, symbol) {
+  renderSingleReel(index, symbolId) {
     const reelSymbolElement = this.reelSymbolElements[index];
-
-    if (reelSymbolElement) {
-      reelSymbolElement.textContent = symbol || "❔";
-    }
+    this.setCellSymbol(reelSymbolElement, symbolId || null);
   }
 
   startSpinning() {
@@ -123,6 +144,42 @@ class SlotMachineUI {
     if (reelElement) {
       reelElement.classList.remove("is-spinning");
     }
+  }
+
+  clearBoardEffects() {
+    this.reelElements.forEach((reelElement) => {
+      reelElement.classList.remove("is-winning", "is-clearing", "is-tumbling");
+    });
+  }
+
+  markCells(indexes, className, isActive) {
+    indexes.forEach((index) => {
+      const reelElement = this.reelElements[index];
+
+      if (reelElement) {
+        reelElement.classList.toggle(className, isActive);
+      }
+    });
+  }
+
+  async animateWin(indexes, flashDurationMs, clearDelayMs) {
+    this.clearBoardEffects();
+    this.markCells(indexes, "is-winning", true);
+    await new Promise((resolve) => setTimeout(resolve, flashDurationMs));
+
+    this.markCells(indexes, "is-clearing", true);
+    indexes.forEach((index) => this.renderSingleReel(index, null));
+    await new Promise((resolve) => setTimeout(resolve, clearDelayMs));
+
+    this.markCells(indexes, "is-winning", false);
+    this.markCells(indexes, "is-clearing", false);
+  }
+
+  async animateTumble(reels, indexes, durationMs) {
+    this.renderReels(reels);
+    this.markCells(indexes, "is-tumbling", true);
+    await new Promise((resolve) => setTimeout(resolve, durationMs));
+    this.markCells(indexes, "is-tumbling", false);
   }
 
   renderBalance(balance) {

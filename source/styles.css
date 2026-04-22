@@ -219,6 +219,22 @@ h1 {
   animation: spin-cylinder 0.24s linear infinite;
 }
 
+.reel.is-winning {
+  border-color: #fff2a6;
+  box-shadow:
+    0 0 0 2px rgba(255, 235, 142, 0.4),
+    0 0 20px rgba(255, 218, 103, 0.45),
+    inset 0 0 18px rgba(255, 226, 122, 0.22);
+}
+
+.reel.is-clearing .reel-symbol {
+  animation: prize-burst 0.26s ease forwards;
+}
+
+.reel.is-tumbling .reel-symbol {
+  animation: tumble-drop 0.42s ease;
+}
+
 .reel-symbol {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   line-height: 1;
@@ -226,6 +242,10 @@ h1 {
   transform: translateY(0);
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
   will-change: transform, opacity, filter;
+}
+
+.reel-symbol.is-empty {
+  opacity: 0;
 }
 
 .reel.is-spinning .reel-symbol {
@@ -259,6 +279,37 @@ h1 {
     transform: translateY(46px) scale(0.9);
     opacity: 0.74;
     filter: blur(0.9px) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+  }
+}
+
+@keyframes prize-burst {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: brightness(1.1) drop-shadow(0 0 8px rgba(255, 235, 130, 0.8));
+  }
+
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+    filter: brightness(1.6) drop-shadow(0 0 20px rgba(255, 235, 130, 0.95));
+  }
+}
+
+@keyframes tumble-drop {
+  0% {
+    transform: translateY(-26px) scale(0.88);
+    opacity: 0.3;
+  }
+
+  70% {
+    transform: translateY(4px) scale(1.03);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
   }
 }
 

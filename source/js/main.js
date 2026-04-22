@@ -3,6 +3,9 @@ const ui = new SlotMachineUI();
 const THEME_STORAGE_KEY = "slot-machine-theme";
 const COLUMN_START_DELAY_MS = 70;
 const COLUMN_STOP_DELAY_MS = 85;
+const SYMBOL_ICON_BY_ID = Object.fromEntries(
+  GAME_CONFIG.symbols.map((symbol) => [symbol.id, symbol.icon])
+);
 let spinInteractionLocked = false;
 
 function updateSpinAvailability() {
@@ -27,6 +30,7 @@ function initialize() {
     columnCount: GAME_CONFIG.columnCount,
     rowCount: GAME_CONFIG.rowCount,
     symbols: machine.buildRandomReels().flat(),
+    symbolMap: SYMBOL_ICON_BY_ID,
   });
   const state = machine.getState();
   ui.renderBalance(state.balance);
@@ -55,7 +59,7 @@ function startReelAnimation(activeCellIndexes) {
     activeCellIndexes.forEach((cellIndex) => {
       const symbol =
         GAME_CONFIG.symbols[Math.floor(Math.random() * GAME_CONFIG.symbols.length)];
-      ui.renderSingleReel(cellIndex, symbol);
+      ui.renderSingleReel(cellIndex, symbol.id);
     });
   }, GAME_CONFIG.animationTickMs);
 }
@@ -87,13 +91,13 @@ async function revealFinalReels(outcomeReels) {
   }
 }
 
-function formatWinningLine(bestLine) {
-  if (!bestLine) {
-    return "";
-  }
-
-  const lineType = bestLine.direction === "column" ? "column" : "row";
-  return ` ${bestLine.length} matching ${bestLine.symbol} in ${lineType} ${bestLine.index + 1}.`;
+function formatCascadeWin(cascade) {
+  return cascade.wins
+    .map((winGroup) => {
+      const extraText = winGroup.extraCount > 0 ? ` (+${winGroup.extraCount})` : "";
+      return `${winGroup.count}x ${winGroup.icon}${extraText} pays ${ui.formatMoney(winGroup.payout)}`;
+    })
+    .join(" | ");
 }
 
 async function handleSpin() {
@@ -127,9 +131,9 @@ async function handleSpin() {
     await startColumnsLeftToRight(activeCellIndexes);
     ui.syncSpinningReels(Array.from(activeCellIndexes));
     const spinPromise = machine.spin(GAME_CONFIG.spinDurationMs);
+    const balanceAfterBet = machine.getState().balance;
 
-    // Bet is deducted immediately when spin starts.
-    ui.renderBalance(machine.getState().balance);
+    ui.renderBalance(balanceAfterBet);
     ui.showResult("Spinning cylinders...", "neutral");
 
     const outcome = await spinPromise;
@@ -138,15 +142,39 @@ async function handleSpin() {
     animation = null;
     await revealFinalReels(outcome.reels);
 
-    ui.renderBalance(outcome.balance);
+    ui.renderBalance(balanceAfterBet);
 
     if (outcome.didWin) {
+      for (const cascade of outcome.cascades) {
+        ui.showResult(
+          `Tumble ${cascade.index}: ${formatCascadeWin(cascade)}. Total win ${ui.formatMoney(
+            cascade.totalPayout
+          )}.`,
+          "win"
+        );
+        await ui.animateWin(
+          cascade.matchedIndexes,
+          GAME_CONFIG.winFlashMs,
+          GAME_CONFIG.clearDelayMs
+        );
+        ui.renderBalance(cascade.balanceAfterCascade);
+        await ui.animateTumble(
+          cascade.boardAfterTumble,
+          cascade.droppedIndexes,
+          GAME_CONFIG.tumbleDropMs
+        );
+        await sleep(GAME_CONFIG.cascadePauseMs);
+      }
+
       ui.showResult(
-        `WIN! Payout: $${outcome.payout} (Net: ${outcome.netChange >= 0 ? "+" : ""}$${outcome.netChange}).${formatWinningLine(outcome.bestLine)}`,
+        `WIN! Total tumble win: ${ui.formatMoney(outcome.totalPayout)} (${outcome.netChange >= 0 ? "+" : ""}${ui.formatMoney(outcome.netChange)} net) across ${outcome.cascades.length} tumble${outcome.cascades.length === 1 ? "" : "s"}.`,
         "win"
       );
     } else {
-      ui.showResult("LOSS. Need 4+ matching symbols in a row or column to win.", "loss");
+      ui.showResult(
+        "LOSS. Hit a symbol's minimum count anywhere on the board to trigger a tumble win.",
+        "loss"
+      );
     }
   } catch (error) {
     if (animation) {
@@ -160,6 +188,7 @@ async function handleSpin() {
     }
     spinInteractionLocked = false;
     ui.stopSpinning();
+    ui.clearBoardEffects();
     updateSpinAvailability();
 
     if (!machine.canSpin() && machine.getState().balance < GAME_CONFIG.fixedBet) {
